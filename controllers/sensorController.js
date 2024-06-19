@@ -2,12 +2,11 @@ const Sensor = require('../models/sensorModel');
 
 const createSensor = async (req, res) => {
     try {
-        const { voltage, current, temp, soc} = req.body;
+        const { voltage, current, soc} = req.body;
 
         const sensorData = {
             voltage,
             current,
-            temp,
             soc,
             waktu: Date.now()
         }
