@@ -2,13 +2,14 @@ const Sensor = require('../models/sensorModel');
 
 const createSensor = async (req, res) => {
     try {
-        const { voltage, current, soc, suhu} = req.body;
+        const { voltage, current, soc, suhu, set} = req.body;
 
         const sensorData = {
             voltage,
             current,
             soc,
             suhu,
+            set,
             waktu: Date.now()
         }
         await Sensor.create(sensorData);
@@ -40,9 +41,9 @@ const getSensors = async (req, res) => {
         const sensor = dataSensor.map(sensor => ({
             voltage: sensor.voltage,
             current: sensor.current,
-            temp: sensor.temp,
             soc: sensor.soc,
             suhu: sensor.suhu,
+            set: sensor.set,
             waktu: sensor.waktu
         }))
         res.status(200).json({

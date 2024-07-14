@@ -17,6 +17,10 @@ const sensorSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
+    set: {
+        type: Number,
+        required: false,
+    },
     waktu: {
         type: Date,
         default: Date.now,
